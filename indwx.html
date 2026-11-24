@@ -1,0 +1,2070 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ฝึกภาษาจีนพื้นฐาน — คำศัพท์และเกมฟังเสียง</title>
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --surface: #ffffff;
+      --surface-subtle: #f9f8f6;
+      --border: #e6e2d8;
+      --border-focus: #c93b2b;
+      --ink: #1e2024;
+      --muted: #646872;
+      --brand: #c93b2b;
+      --brand-hover: #b02e20;
+      --brand-soft: #fdf2f0;
+      --brand-ink: #ffffff;
+      --accent: #0f766e;
+      --accent-soft: #f0fdfa;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --success-border: #86efac;
+      --danger: #b91c1c;
+      --danger-bg: #fef2f2;
+      --danger-border: #fca5a5;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 2px 8px rgba(24, 24, 27, 0.06), 0 1px 3px rgba(24, 24, 27, 0.04);
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Shell */
+    .app-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: var(--brand-ink);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Main Tabs (Navigation) */
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--surface-subtle);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      gap: 2px;
+    }
+
+    .nav-tab {
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-tab:hover {
+      color: var(--ink);
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-tab.active {
+      background: var(--surface);
+      color: var(--brand);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-6) var(--space-8);
+    }
+
+    /* Control Panel Card */
+    .control-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-4) var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .select-control {
+      font: inherit;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s ease;
+      width: 100%;
+    }
+
+    .select-control:focus {
+      border-color: var(--brand);
+    }
+
+    .search-box-wrap {
+      position: relative;
+      flex: 2;
+      min-width: 260px;
+    }
+
+    .search-input {
+      font: inherit;
+      font-size: 14px;
+      padding: 10px 12px 10px 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s ease;
+      width: 100%;
+    }
+
+    .search-input:focus {
+      border-color: var(--brand);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    /* Sub-bar options */
+    .sub-control-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px dashed var(--border);
+    }
+
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .toggle-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-label input {
+      accent-color: var(--brand);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* View Study Layout */
+    .study-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    .study-title-section {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .study-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .study-badge {
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .study-progress-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: var(--surface);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .progress-bar-bg {
+      width: 100px;
+      height: 8px;
+      background: var(--surface-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--success);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Grid of Vocab Cards */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .hide-pinyin .vocab-pinyin,
+    .hide-pinyin .vocab-thai-pron,
+    .hide-pinyin .ex-py {
+      visibility: hidden;
+    }
+
+    .hide-thai-pron .vocab-thai-pron,
+    .hide-thai-pron .ex-th {
+      display: none !important;
+    }
+
+    /* Flashcard Style */
+    .vocab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-4) var(--space-4);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .vocab-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 16px rgba(24, 24, 27, 0.08);
+    }
+
+    .vocab-card.speaking {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-2);
+    }
+
+    .vocab-status-pills {
+      display: flex;
+      gap: 4px;
+    }
+
+    .vocab-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .vocab-tag.difficulty {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .vocab-tag.status-learned {
+      background: var(--success-bg);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+    }
+
+    .vocab-tag.status-unlearned {
+      background: var(--surface-subtle);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .vocab-tag.status-unsure {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid var(--danger-border);
+    }
+
+    .audio-btns-group {
+      display: flex;
+      gap: 4px;
+    }
+
+    .icon-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--brand);
+      color: var(--brand-ink);
+      border-color: var(--brand);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-2) 0;
+      flex: 1;
+    }
+
+    .vocab-hanzi {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 4px 0;
+      line-height: 1.2;
+    }
+
+    .vocab-pinyin {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 2px;
+    }
+
+    .vocab-thai-pron {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface-subtle);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: var(--space-2);
+    }
+
+    /* Flashcard toggle states */
+    .flashcard-reveal-box {
+      border-top: 1px dashed var(--border);
+      width: 100%;
+      padding-top: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .vocab-meaning {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Flashcard hidden state style */
+    .vocab-card.mode-flash-hidden .vocab-meaning,
+    .vocab-card.mode-flash-hidden .vocab-example {
+      display: none;
+    }
+
+    .flashcard-click-prompt {
+      font-size: 12px;
+      color: var(--brand);
+      font-weight: 700;
+      margin-top: var(--space-2);
+      background: var(--brand-soft);
+      padding: 4px 12px;
+      border-radius: 99px;
+      display: none;
+    }
+
+    .vocab-card.mode-flash-hidden .flashcard-click-prompt {
+      display: inline-block;
+    }
+
+    .vocab-example {
+      font-size: 12px;
+      color: var(--ink);
+      background: var(--surface-subtle);
+      border-radius: 8px;
+      padding: var(--space-2);
+      width: 100%;
+      text-align: left;
+      margin-top: var(--space-1);
+      position: relative;
+    }
+
+    .vocab-example .ex-cn {
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vocab-example .ex-py {
+      color: var(--brand);
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .vocab-example .ex-th {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 2px;
+      border-top: 1px solid rgba(0,0,0,0.04);
+      padding-top: 2px;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-btn {
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: var(--surface);
+      color: var(--ink);
+      transition: all 0.15s ease;
+    }
+
+    .footer-btn.btn-unsure:hover, .footer-btn.btn-unsure.active {
+      background: var(--danger-bg);
+      border-color: var(--danger-border);
+      color: var(--danger);
+    }
+
+    .footer-btn.btn-learned:hover, .footer-btn.btn-learned.active {
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: var(--success);
+    }
+
+    /* Game Shell Setup */
+    .game-config-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-6) var(--space-8);
+    }
+
+    .config-title {
+      margin: 0 0 var(--space-4);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      border-bottom: 2px solid var(--brand);
+      padding-bottom: var(--space-2);
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .start-game-btn {
+      font: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--brand);
+      color: var(--brand-ink);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(201, 59, 43, 0.2);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .start-game-btn:hover {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Active Game UI */
+    .game-stage-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-6);
+    }
+
+    .game-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .game-progress-text {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .timer-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timer-bar {
+      width: 120px;
+      height: 8px;
+      background: var(--surface-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .timer-fill {
+      height: 100%;
+      background: var(--brand);
+      width: 100%;
+      transition: width 1s linear;
+    }
+
+    .question-prompt-stage {
+      text-align: center;
+      padding: var(--space-6) var(--space-4);
+      background: var(--surface-subtle);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-6);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .sound-pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Typing challenge styles */
+    .typing-input-wrap {
+      margin-bottom: var(--space-6);
+    }
+
+    .typing-input {
+      font: inherit;
+      font-size: 18px;
+      font-weight: 700;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      text-align: center;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .typing-input:focus {
+      border-color: var(--brand);
+    }
+
+    .typing-btn {
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--ink);
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      margin-top: var(--space-2);
+    }
+
+    /* Choices grid layout */
+    .choices-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .choice-btn {
+      font: inherit;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 108px;
+      transition: all 0.15s ease;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+    }
+
+    .choice-btn.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .choice-btn.wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: var(--danger);
+    }
+
+    .choice-main {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .choice-sub {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Feedback Layout */
+    .game-feedback {
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      margin-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .game-feedback.correct {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success);
+    }
+
+    .game-feedback.wrong {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+    }
+
+    /* Progress Stats Tab layout */
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-6);
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.1;
+      margin-bottom: var(--space-1);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* Grammatical Guide Panel */
+    .guide-card {
+      background: var(--accent-soft);
+      border: 1px solid #99f6e4;
+      border-radius: var(--radius);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .guide-title {
+      margin: 0 0 var(--space-2);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-content {
+      font-size: 13px;
+      color: #0f766e;
+      line-height: 1.6;
+    }
+
+    /* Utility */
+    .empty-state {
+      text-align: center;
+      padding: var(--space-8);
+      color: var(--muted);
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px dashed var(--border);
+      grid-column: 1/-1;
+    }
+
+    .err-msg {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-4);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: var(--space-3) var(--space-4);
+      }
+      .container {
+        padding: var(--space-4);
+      }
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-mark" aria-hidden="true">中文</div>
+        <div>
+          <h1 class="brand-title">ฝึกภาษาจีนพื้นฐานในชีวิตประจำวัน</h1>
+          <p class="brand-subtitle">ท่องจำคำศัพท์มาตรฐานและแบบทดสอบสุ่มจำลองสถานการณ์</p>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" role="tablist" aria-label="เมนูหลัก">
+        <button type="button" class="nav-tab active" id="tab-study" role="tab" aria-selected="true">
+          📖 ท่องจำคำศัพท์
+        </button>
+        <button type="button" class="nav-tab" id="tab-game" role="tab" aria-selected="false">
+          🎮 เกมทายคำศัพท์
+        </button>
+        <button type="button" class="nav-tab" id="tab-progress" role="tab" aria-selected="false">
+          📊 ความคืบหน้า
+        </button>
+        <button type="button" class="nav-tab" id="tab-settings" role="tab" aria-selected="false">
+          ⚙️ การตั้งค่า / ไวยากรณ์
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="error-alert" class="err-msg hidden"></div>
+
+    <!-- VIEW 1: VOCABULARY STUDY -->
+    <section id="view-study" aria-label="โหมดท่องจำคำศัพท์">
+      <!-- Control Panel -->
+      <div class="control-panel">
+        <div class="filter-row">
+          <div class="filter-group">
+            <span class="filter-label">หมวดหมู่หลัก</span>
+            <select id="study-main-category" class="select-control"></select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">หมวดหมู่ย่อย</span>
+            <select id="study-sub-category" class="select-control"></select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">ระดับความยาก</span>
+            <select id="study-difficulty" class="select-control">
+              <option value="all">ทั้งหมด</option>
+              <option value="easy">ระดับเริ่มต้น</option>
+              <option value="freq">ระดับใช้บ่อย</option>
+            </select>
+          </div>
+          <div class="filter-group search-box-wrap">
+            <span class="filter-label">ค้นหาด่วน</span>
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="study-search" class="search-input" placeholder="ค้นหาอักษรจีน พินอิน หรือความหมายไทย...">
+          </div>
+        </div>
+
+        <div class="sub-control-row">
+          <div class="toggle-group">
+            <label class="toggle-label">
+              <input type="checkbox" id="study-toggle-flashcard">
+              <span>เปิดโหมดบัตรคำ (Flashcard) - แตะเพื่อเปิดคำแปล</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="study-toggle-pinyin" checked>
+              <span>แสดงพินอิน</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="study-toggle-thai" checked>
+              <span>แสดงคำอ่านไทย</span>
+            </label>
+          </div>
+
+          <div class="filter-group" style="max-width: 180px; min-width: auto; flex: none;">
+            <select id="study-progress-filter" class="select-control" style="padding: 6px 10px; font-size: 13px;">
+              <option value="all">ตัวกรองเรียนรู้: ทั้งหมด</option>
+              <option value="unlearned">ยังไม่เคยฝึก</option>
+              <option value="unsure">ยังไม่แม่น ❌</option>
+              <option value="learned">จำได้แล้ว ✅</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Bar / Progress -->
+      <div class="study-meta">
+        <div class="study-title-section">
+          <h2 class="study-title" id="current-category-title">ตัวเลขพื้นฐาน</h2>
+          <span class="study-badge" id="category-badge-count">คำศัพท์ 0 คำ</span>
+        </div>
+        <div class="study-progress-container">
+          <span>ความสำเร็จหมวดนี้:</span>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="study-progress-bar"></div>
+          </div>
+          <span id="study-progress-text">0 / 0 (0%)</span>
+        </div>
+      </div>
+
+      <!-- Grid of words -->
+      <div class="vocab-grid" id="vocab-grid"></div>
+    </section>
+
+    <!-- VIEW 2: INTERACTIVE QUIZ GAME -->
+    <section id="view-game" class="hidden" aria-label="เกมทายคำศัพท์">
+      <!-- Game Settings Screen -->
+      <div id="game-setup-panel" class="game-config-card">
+        <h2 class="config-title">🎮 ตั้งค่าแบบทดสอบภาษาจีน</h2>
+        
+        <div class="config-grid">
+          <div class="filter-group">
+            <span class="filter-label">เลือกหมวดหมู่คำศัพท์</span>
+            <select id="game-category" class="select-control"></select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">ระดับความยาก</span>
+            <select id="game-difficulty" class="select-control">
+              <option value="all">ทั้งหมด</option>
+              <option value="easy">ระดับเริ่มต้น</option>
+              <option value="freq">ระดับใช้บ่อย</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">จำนวนข้อทดสอบ</span>
+            <select id="game-count" class="select-control">
+              <option value="5">5 ข้อ</option>
+              <option value="10" selected>10 ข้อ</option>
+              <option value="20">20 ข้อ</option>
+              <option value="unlimited">เล่นเรื่อยๆ (ไม่จำกัด)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">รูปแบบเกมหลัก</span>
+            <select id="game-type" class="select-control">
+              <option value="listen_meaning">🔊 ฟังเสียงภาษาจีน ➔ ตอบคำแปลภาษาไทย</option>
+              <option value="hanzi_pinyin">🀄 ดูอักษรจีนตัวย่อ ➔ ตอบพินอิน</option>
+              <option value="pinyin_meaning">🔤 ดูพินอิน ➔ ตอบคำแปลภาษาไทย</option>
+              <option value="meaning_hanzi">🇹🇭 ดูความหมายไทย ➔ ตอบอักษรจีน</option>
+              <option value="num_listen_arabic">🔢 ฟังเสียงตัวเลข ➔ ตอบเลขอารบิก (เฉพาะหมวดเลข)</option>
+              <option value="num_arabic_hanzi">🔢 ดูเลขอารบิก ➔ ตอบอักษรจีน (เฉพาะหมวดเลข)</option>
+              <option value="fill_blank">✏️ เติมคำในประโยคภาษาจีนสั้น ๆ</option>
+              <option value="typing_pinyin">⌨️ ความท้าทาย: พิมพ์ตอบพินอิน (ไม่มีวรรณยุกต์)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">โหมดจับเวลาต่อข้อ</span>
+            <select id="game-timer" class="select-control">
+              <option value="off">ไม่มีการจับเวลา</option>
+              <option value="10">จับเวลา 10 วินาที</option>
+              <option value="20">จับเวลา 20 วินาที</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">การแสดงคำอ่านไทยด่วน</span>
+            <select id="game-show-thai" class="select-control">
+              <option value="yes">แสดงคำอ่านไทยบนเฉลย</option>
+              <option value="no">ซ่อนคำอ่านไทย</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="start-game-btn" id="btn-start-game">
+          🎯 เริ่มทดสอบความเข้าใจเลย
+        </button>
+      </div>
+
+      <!-- Active Game Play Area -->
+      <div id="game-play-panel" class="game-stage-card hidden">
+        <div class="game-top-bar">
+          <span id="game-q-counter" class="game-progress-text">คำถามข้อที่ 1 / 10</span>
+          <div class="timer-wrap" id="timer-wrapper">
+            <span class="filter-label">เวลาที่เหลือ</span>
+            <div class="timer-bar"><div class="timer-fill" id="game-timer-fill"></div></div>
+            <span id="timer-text" style="font-size: 13px; font-weight: 700;">10s</span>
+          </div>
+          <div class="score-pill" id="game-score-pill">คะแนนสะสม: 0</div>
+        </div>
+
+        <!-- Question Prompt Area -->
+        <div class="question-prompt-stage">
+          <p class="prompt-instruction" id="game-prompt-instruction">กรุณาทำตามคำสั่งในคำถาม</p>
+          <button type="button" class="listen-trigger" id="game-speak-btn">
+            <span aria-hidden="true">🔊</span>
+            <span id="game-speak-label">กดฟังเสียงโจทย์</span>
+          </button>
+
+          <div class="prompt-hanzi-box" id="game-prompt-visual" style="margin-top: 15px;">
+            <div class="prompt-hanzi" id="game-visual-primary">?</div>
+            <div class="prompt-pinyin" id="game-visual-secondary">Pinyin</div>
+          </div>
+        </div>
+
+        <!-- Choices Grid or Typing Input -->
+        <div id="game-choices-container">
+          <div class="choices-grid" id="game-choices-grid"></div>
+        </div>
+
+        <!-- Typing Challenge Form -->
+        <div id="game-typing-container" class="typing-input-wrap hidden">
+          <input type="text" id="game-typing-input" class="typing-input" placeholder="พิมพ์พินอินที่ถูกต้องที่นี่ (เช่น ni hao)...">
+          <button type="button" class="typing-btn" id="game-typing-submit">ส่งคำตอบ</button>
+        </div>
+
+        <!-- Feedback Area -->
+        <div class="game-feedback hidden" id="game-feedback-area">
+          <div style="display: flex; align-items: center; justify-content: space-between; font-weight: 800;">
+            <span id="game-feedback-title" style="font-size: 18px;">เฉลยถูกต้อง!</span>
+            <button type="button" class="icon-btn" id="game-feedback-audio-btn">🔊</button>
+          </div>
+          <p id="game-feedback-desc" style="margin: 4px 0; font-size: 14px; font-weight: 500;"></p>
+          <div class="vocab-example" id="game-feedback-example-container">
+            <div class="ex-cn" id="game-feedback-ex-cn"></div>
+            <div class="ex-py" id="game-feedback-ex-py"></div>
+            <div class="ex-th" id="game-feedback-ex-th"></div>
+          </div>
+          <button type="button" class="start-game-btn" id="btn-next-q" style="margin-top: 15px; padding: 10px;">ข้อต่อไป ➔</button>
+        </div>
+      </div>
+
+      <!-- Game Over Summary -->
+      <div id="game-over-panel" class="game-config-card hidden" style="text-align: center;">
+        <h2 class="config-title" style="border: none;">🎉 สรุปผลการประเมินผลสัมฤทธิ์</h2>
+        <div style="font-size: 64px; margin: 20px 0 10px;">🏆</div>
+        <div class="stat-value" id="game-final-score" style="font-size: 48px; color: var(--accent);">8 / 10</div>
+        <p id="game-final-eval" style="font-weight: 700; color: var(--ink); margin-bottom: 30px; font-size: 16px;">ยอดเยี่ยมมาก! คุณมีความจำพินอินและเสียงอ่านที่แม่นยำ</p>
+
+        <div id="wrong-answers-review-section" style="text-align: left; margin-bottom: 30px;" class="hidden">
+          <h3 style="font-size: 15px; border-left: 4px solid var(--danger); padding-left: 10px; color: var(--danger); margin-bottom: 15px;">❌ ข้อที่ตอบผิด เพื่อให้ทบทวนซ้ำ:</h3>
+          <div class="vocab-grid" id="wrong-answers-grid"></div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-4);">
+          <button type="button" class="start-game-btn" id="btn-restart-normal" style="flex: 1;">🎯 เริ่มเล่นใหม่อีกครั้ง</button>
+          <button type="button" class="start-game-btn" id="btn-review-mistakes" style="flex: 1; background: var(--accent); box-shadow: 0 4px 12px rgba(15,118,110,0.25);" class="hidden">🔄 เล่นซ้ำเฉพาะข้อที่ผิด</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: PROGRESS TAB -->
+    <section id="view-progress" class="hidden" aria-label="ความคืบหน้า">
+      <div class="stats-dashboard">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-learned">0</div>
+          <div class="stat-label">คำศัพท์ที่จำได้แล้ว (จำได้ ✅)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-unsure" style="color: var(--danger);">0</div>
+          <div class="stat-label">คำศัพท์ที่ยังไม่แม่น (ยังไม่แม่น ❌)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-unlearned" style="color: var(--muted);">0</div>
+          <div class="stat-label">คำศัพท์ที่ยังไม่เคยเรียน</div>
+        </div>
+      </div>
+
+      <div class="game-config-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 800;">📈 ตารางคำศัพท์ที่ยังไม่แม่นยำ (ต้องการทบทวนเร่งด่วน)</h3>
+          <button type="button" class="footer-btn" id="btn-clear-all-progress" style="flex: none; color: var(--danger); border-color: var(--danger-border);">🧹 ล้างข้อมูลความคืบหน้าทั้งหมด</button>
+        </div>
+        
+        <div class="vocab-grid" id="unsure-vocab-grid"></div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: SETTINGS / GRAMMAR INFO TAB -->
+    <section id="view-settings" class="hidden" aria-label="การตั้งค่าและคำอธิบายไวยากรณ์">
+      <div class="guide-card">
+        <h3 class="guide-title">💡 เกร็ดไวยากรณ์สำคัญ: การอ่านเลข 2 (二 vs 两) และเลข 1 (一 vs 幺)</h3>
+        <div class="guide-content">
+          <p><strong>1. ความแตกต่างระหว่าง 二 (èr) กับ 两 (liǎng):</strong></p>
+          <ul>
+            <li><strong>二 (èr):</strong> ใช้เมื่อนับเลขปกติ (เช่น 1, 2, 3 = 一, 二, 三) หรือเมื่อเป็นหลักสิบ (เช่น 20 = 二十, 22 = 二十二) และทศนิยม/เศษส่วน</li>
+            <li><strong>两 (liǎng):</strong> ใช้เมื่อระบุจำนวนของสิ่งของ คน หรือสถานที่เมื่อมีลักษณนามต่อท้าย เช่น สองคน (两个人 - liǎng gè rén), สองแก้ว (两杯 - liǎng bēi) และใช้กับหลักร้อย หลักพัน หลักหมื่นขึ้นไป เช่น 200 (两百)</li>
+          </ul>
+          <p><strong>2. การอ่านเลข 1 ในหมายเลขห้องหรือเบอร์โทรศัพท์ (一 vs 幺):</strong></p>
+          <ul>
+            <li><strong>幺 (yāo):</strong> ในภาษาจีน นิยมอ่านเลข 1 (一 - yī) เป็น <strong>"เยา" (yāo)</strong> เมื่อบอกหมายเลขโทรศัพท์, เลขห้อง หรือรหัสต่างๆ เพื่อป้องกันการสับสนเสียงกับเลข 7 (七 - qī)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="game-config-card">
+        <h3 class="config-title">🔊 ตั้งค่าตัวสร้างเสียงอ่านจีน (Web Speech API)</h3>
+        <div class="config-grid">
+          <div class="filter-group">
+            <span class="filter-label">ความเร็วในการพูด (Speech Rate)</span>
+            <select id="setting-rate" class="select-control">
+              <option value="0.7">ช้ามาก (0.7)</option>
+              <option value="0.8" selected>ช้ากำลังดี (0.8)</option>
+              <option value="0.9">ปานกลางค่อนช้า (0.9)</option>
+              <option value="1.0">ปกติ (1.0)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">ทดสอบออกเสียง</span>
+            <button type="button" class="start-game-btn" id="btn-test-speech" style="padding: 10px;">📣 ทดสอบพูด (你好)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // CATEGORY SCHEMA
+    const CATEGORIES = {
+      'numbers': {
+        name: '🔢 หมวดตัวเลขและการนับ',
+        subcategories: {
+          'basics': '0-10 และหลักสิบ',
+          'teens_tens': 'จำนวน 11-99',
+          'large': 'หลักร้อย หลักพัน หลักหมื่น แสน',
+          'very_large': 'หลักล้าน และ ร้อยล้าน',
+          'ordinals': 'เลขลำดับ (ที่หนึ่ง, ที่สอง)',
+          'money': 'จำนวนเงินและราคา (หยวน)',
+          'calendar': 'วัน เดือน ปี และวันที่',
+          'time': 'เวลา ชั่วโมง และนาที',
+          'measure': 'ลักษณนามพื้นฐาน (个, 位...)',
+          'codes': 'เบอร์โทรศัพท์ เลขห้อง (幺)',
+          'decimals': 'ทศนิยม เศษส่วน เปอร์เซ็นต์'
+        }
+      },
+      'life': {
+        name: '🌍 หมวดคำศัพท์ชีวิตประจำวัน',
+        subcategories: {
+          'greetings': 'คำทักทายและคำสุภาพ',
+          'intro': 'แนะนำตัว สัญชาติ และอาชีพ',
+          'family': 'ครอบครัวและบุคคล',
+          'food': 'อาหารและสั่งอาหาร 🍜',
+          'shopping': 'ร้านค้า การซื้อของและการต่อรอง',
+          'travel': 'การเดินทาง ถามทาง และรถไฟ',
+          'hotel': 'ที่พัก โรงแรม และการเช็กอิน',
+          'places': 'สถานที่สำคัญ และห้องน้ำ',
+          'weather': 'สภาพอากาศและฤดูกาล',
+          'health': 'สุขภาพ อาการป่วยและขอความช่วยเหลือ',
+          'comm': 'การสื่อสารเมื่อฟังไม่เข้าใจ',
+          'verbs_adj': 'คำกริยาและคำคุณศัพท์พื้นฐาน',
+          'questions': 'คำถามพื้นฐาน (อะไร ที่ไหน...)'
+        }
+      }
+    };
+
+    // COMPREHENSIVE DB
+    const VOCAB_DATA = [
+      // Numbers Basics
+      { id: 'num_0', mainCat: 'numbers', subCat: 'basics', difficulty: 'easy', hanzi: '零', pinyin: 'líng', thaiPron: 'หลิง', meaning: '0 (ศูนย์)', exCn: '今天零度。', exPy: 'Jīntiān líng dù.', exTh: 'วันนี้อุณหภูมิศูนย์องศา' },
+      { id: 'num_1', mainCat: 'numbers', subCat: 'basics', difficulty: 'easy', hanzi: '一', pinyin: 'yī', thaiPron: 'อี', meaning: '1 (หนึ่ง)', exCn: '一瓶水。', exPy: 'Yī píng shuǐ.', exTh: 'น้ำหนึ่งขวด' },
+      { id: 'num_2', mainCat: 'numbers', subCat: 'basics', difficulty: 'easy', hanzi: '二', pinyin: 'èr', thaiPron: 'เอ้อร์', meaning: '2 (สอง - ใช้ทั่วไป/นับเลข)', exCn: '一，二，三，四。', exPy: 'Yī, èr, sān, sì.', exTh: 'หนึ่ง, สอง, สาม, สี่' },
+      { id: 'num_2l', mainCat: 'numbers', subCat: 'basics', difficulty: 'easy', hanzi: '两', pinyin: 'liǎng', thaiPron: 'เหลี่ยง', meaning: 'สอง (ใช้คู่กับลักษณนาม)', exCn: '我อยากได้สองอัน。', exPy: 'Wǒ xiǎng yào liǎng gè.', exTh: 'ฉันอยากได้สองอัน (ใช้两 แทน二)' },
+      { id: 'num_10', mainCat: 'numbers', subCat: 'basics', difficulty: 'easy', hanzi: '十', pinyin: 'shí', thaiPron: 'สือ', meaning: '10 (สิบ)', exCn: '十天以后。', exPy: 'Shí tiān yǐhòu.', exTh: 'สิบวันหลังจากนี้' },
+
+      // Numbers Teens & Tens (11-99)
+      { id: 'num_11', mainCat: 'numbers', subCat: 'teens_tens', difficulty: 'easy', hanzi: '十一', pinyin: 'shíyī', thaiPron: 'สืออี', meaning: '11 (สิบเอ็ด)', exCn: '十一块钱。', exPy: 'Shíyī kuài qián.', exTh: 'เงินสิบเอ็ดหยวน' },
+      { id: 'num_20', mainCat: 'numbers', subCat: 'teens_tens', difficulty: 'easy', hanzi: '二十', pinyin: 'èrshí', thaiPron: 'เอ้อร์สือ', meaning: '20 (ยี่สิบ)', exCn: '二十个人。', exPy: 'Èrshí gè rén.', exTh: 'คนยี่สิบคน' },
+      { id: 'num_99', mainCat: 'numbers', subCat: 'teens_tens', difficulty: 'freq', hanzi: '九十九', pinyin: 'jiǔshíjiǔ', thaiPron: 'จิ่วสือจิ่ว', meaning: '99 (เก้าสิบเก้า)', exCn: '九十九朵玫瑰。', exPy: 'Jiǔshíjiǔ duǒ méiguī.', exTh: 'กุหลาบเก้าสิบเก้าดอก' },
+
+      // Hundreds, Thousands, etc
+      { id: 'num_100', mainCat: 'numbers', subCat: 'large', difficulty: 'easy', hanzi: '一百', pinyin: 'yībǎi', thaiPron: 'อีป่าย', meaning: '100 (หนึ่งร้อย)', exCn: '一百块人民币。', exPy: 'Yībǎi kuài rénmínbì.', exTh: 'เงินหยวนหนึ่งร้อยหยวน' },
+      { id: 'num_1000', mainCat: 'numbers', subCat: 'large', difficulty: 'freq', hanzi: '一千', pinyin: 'yīqiān', thaiPron: 'อีเซียน', meaning: '1,000 (หนึ่งพัน)', exCn: '一千公里。', exPy: 'Yīqiān gōnglǐ.', exTh: 'หนึ่งพันกิโลเมตร' },
+      { id: 'num_10000', mainCat: 'numbers', subCat: 'large', difficulty: 'freq', hanzi: '一万', pinyin: 'yīwàn', thaiPron: 'อีเวิ่น', meaning: '10,000 (หนึ่งหมื่น)', exCn: '一万年。', exPy: 'Yīwàn nián.', exTh: 'หนึ่งหมื่นปี' },
+      { id: 'num_100000', mainCat: 'numbers', subCat: 'large', difficulty: 'freq', hanzi: '十万', pinyin: 'shíwàn', thaiPron: 'สือเวิ่น', meaning: '100,000 (หนึ่งแสน)', exCn: '十万块钱。', exPy: 'Shíwàn kuài qián.', exTh: 'เงินหนึ่งแสนหยวน' },
+
+      // Very Large
+      { id: 'num_million', mainCat: 'numbers', subCat: 'very_large', difficulty: 'freq', hanzi: '一百万', pinyin: 'yībǎiwàn', thaiPron: 'อีป่ายเวิ่น', meaning: '1,000,000 (หนึ่งล้าน)', exCn: '一百万人口。', exPy: 'Yībǎiwàn rénkǒu.', exTh: 'ประชากรหนึ่งล้านคน' },
+      { id: 'num_100million', mainCat: 'numbers', subCat: 'very_large', difficulty: 'freq', hanzi: '一亿', pinyin: 'yīyì', thaiPron: 'อีอี้', meaning: '100,000,000 (ร้อยล้าน)', exCn: '中国有十四亿人口。', exPy: 'Zhōngguó yǒu shísì yì rénkǒu.', exTh: 'ประเทศจีนมีประชากรสิบสี่ร้อยล้านคน' },
+
+      // Ordinals
+      { id: 'num_ord1', mainCat: 'numbers', subCat: 'ordinals', difficulty: 'easy', hanzi: '第一', pinyin: 'dì-yī', thaiPron: 'ตี้อี', meaning: 'ลำดับที่หนึ่ง / อันดับแรก', exCn: '我是第一名。', exPy: 'Wǒ shì dì-yī míng.', exTh: 'ฉันได้อันดับที่หนึ่ง' },
+      { id: 'num_ord2', mainCat: 'numbers', subCat: 'ordinals', difficulty: 'easy', hanzi: '第二', pinyin: 'dì-èr', thaiPron: 'ตี้เอ้อร์', meaning: 'ลำดับที่สอง', exCn: '第二名。', exPy: 'Dì-èr míng.', exTh: 'อันดับที่สอง' },
+
+      // Money
+      { id: 'num_mon_yuan', mainCat: 'numbers', subCat: 'money', difficulty: 'easy', hanzi: '元', pinyin: 'yuán', thaiPron: 'เยวียน', meaning: 'หยวน (หน่วยเงินที่เป็นทางการ)', exCn: '一共五十元。', exPy: 'Yīgòng wǔshí yuán.', exTh: 'ทั้งหมดห้าสิบหยวน' },
+      { id: 'num_mon_kuai', mainCat: 'numbers', subCat: 'money', difficulty: 'easy', hanzi: '块', pinyin: 'kuài', thaiPron: 'ไขว้', meaning: 'หยวน (ภาษาพูดประจำวัน)', exCn: '这个三块钱。', exPy: 'Zhège sān kuài qián.', exTh: 'อันนี้ราคาประหยัดสามหยวน' },
+      { id: 'num_mon_mao', mainCat: 'numbers', subCat: 'money', difficulty: 'freq', hanzi: '毛', pinyin: 'máo', thaiPron: 'หมาว', meaning: '0.1 หยวน (10 เฟิน)', exCn: '五毛钱。', exPy: 'Wǔ máo qián.', exTh: 'เงินครึ่งหยวน (0.5 หยวน)' },
+
+      // Calendar
+      { id: 'num_cal_mon', mainCat: 'numbers', subCat: 'calendar', difficulty: 'easy', hanzi: '星期一', pinyin: 'xīngqīyī', thaiPron: 'ซิงชีอี', meaning: 'วันจันทร์', exCn: '星期一去上班。', exPy: 'Xīngqīyī qù shàngbān.', exTh: 'วันจันทร์ไปทำงาน' },
+      { id: 'num_cal_fri', mainCat: 'numbers', subCat: 'calendar', difficulty: 'easy', hanzi: '星期五', pinyin: 'xīngqīwǔ', thaiPron: 'ซิงชีอู่', meaning: 'วันศุกร์', exCn: '星期五晚上见。', exPy: 'Xīngqīwǔ wǎnshang jiàn.', exTh: 'เจอกันวันศุกร์ตอนเย็นนะ' },
+      { id: 'num_cal_m1', mainCat: 'numbers', subCat: 'calendar', difficulty: 'easy', hanzi: '一月', pinyin: 'yīyuè', thaiPron: 'อีเยวี่ย', meaning: 'มกราคม', exCn: '一月的天气很冷。', exPy: 'Yīyuè de tiānqì hěn lěng.', exTh: 'อากาศเดือนมกราคมหนาวมาก' },
+      { id: 'num_cal_date', mainCat: 'numbers', subCat: 'calendar', difficulty: 'easy', hanzi: '号', pinyin: 'hào', thaiPron: 'ห้าว', meaning: 'วันที่ (ภาษาพูด)', exCn: '今天十号。', exPy: 'Jīntiān shí hào.', exTh: 'วันนี้วันที่สิบ' },
+
+      // Time
+      { id: 'num_time_hr', mainCat: 'numbers', subCat: 'time', difficulty: 'easy', hanzi: '点', pinyin: 'diǎn', thaiPron: 'เตี่ยน', meaning: 'โมง / นาฬิกา', exCn: '现在两点。', exPy: 'Xiànzài liǎng diǎn.', exTh: 'ตอนนี้สองโมง (ใช้ 两 แทน 二)' },
+      { id: 'num_time_min', mainCat: 'numbers', subCat: 'time', difficulty: 'easy', hanzi: '分', pinyin: 'fēn', thaiPron: 'เฟิน', meaning: 'นาที', exCn: '八点五分。', exPy: 'Bā diǎn wǔ fēn.', exTh: 'แปดโมงห้านาที' },
+      { id: 'num_time_half', mainCat: 'numbers', subCat: 'time', difficulty: 'easy', hanzi: '半', pinyin: 'bàn', thaiPron: 'ปั้น', meaning: 'ครึ่ง', exCn: '三点半。', exPy: 'Sān diǎn bàn.', exTh: 'สามโมงครึ่ง' },
+
+      // Measure
+      { id: 'num_meas_ge', mainCat: 'numbers', subCat: 'measure', difficulty: 'easy', hanzi: '个', pinyin: 'gè', thaiPron: 'เก้อ', meaning: 'อัน / ชิ้น / คน (ลักษณนามทั่วไป)', exCn: '一个人。', exPy: 'Yī gè rén.', exTh: 'คนหนึ่งคน' },
+      { id: 'num_meas_wei', mainCat: 'numbers', subCat: 'measure', difficulty: 'freq', hanzi: '位', pinyin: 'wèi', thaiPron: 'เวย์', meaning: 'ท่าน (ลักษณนามสุภาพสำหรับคน)', exCn: '两位客人。', exPy: 'Liǎng wèi kèrén.', exTh: 'แขกสองท่าน' },
+      { id: 'num_meas_bei', mainCat: 'numbers', subCat: 'measure', difficulty: 'easy', hanzi: '杯', pinyin: 'bēi', thaiPron: 'เปย', meaning: 'แก้ว / ถ้วย', exCn: '一杯茶。', exPy: 'Yī bēi chá.', exTh: 'ชาหนึ่งแก้ว' },
+
+      // Codes
+      { id: 'num_code_yao', mainCat: 'numbers', subCat: 'codes', difficulty: 'freq', hanzi: '幺', pinyin: 'yāo', thaiPron: 'เยา', meaning: 'หมายเลขหนึ่ง (ใช้เมื่อบอกหมายเลขห้อง, โทรศัพท์)', exCn: '我的房间号是一零幺。', exPy: 'Wǒ de fángjiān hào shì yī líng yāo.', exTh: 'ห้องของฉันคือเลขหนึ่งศูนย์หนึ่ง (ห้อง 101)' },
+
+      // Decimals
+      { id: 'num_dec_pt', mainCat: 'numbers', subCat: 'decimals', difficulty: 'freq', hanzi: '点', pinyin: 'diǎn', thaiPron: 'เตี่ยน', meaning: 'จุด (ทศนิยม)', exCn: '三点五。', exPy: 'Sān diǎn wǔ.', exTh: 'สามจุดห้า (3.5)' },
+      { id: 'num_dec_pct', mainCat: 'numbers', subCat: 'decimals', difficulty: 'freq', hanzi: '百分之', pinyin: 'bǎifēnzhī', thaiPron: 'ป่ายเฟินจือ', meaning: 'ร้อยละ... / ...เปอร์เซ็นต์', exCn: '百分之五十。', exPy: 'Bǎifēnzhī wǔshí.', exTh: 'ร้อยละห้าสิบ (50%)' },
+
+      // Greetings
+      { id: 'life_greet_nh', mainCat: 'life', subCat: 'greetings', difficulty: 'easy', hanzi: '你好', pinyin: 'nǐ hǎo', thaiPron: 'หนีห่าว', meaning: 'สวัสดี', exCn: '你好，很高兴认识你！', exPy: 'Nǐ hǎo, hěn gāoxìng rènshì nǐ!', exTh: 'สวัสดี ยินดีที่ได้รู้จักนะ' },
+      { id: 'life_greet_xx', mainCat: 'life', subCat: 'greetings', difficulty: 'easy', hanzi: '谢谢', pinyin: 'xièxie', thaiPron: 'เซี่ยเซี่ย', meaning: 'ขอบคุณ', exCn: '谢谢你的帮助。', exPy: 'Xièxie nǐ de bāngzhù.', exTh: 'ขอบคุณสำหรับความช่วยเหลือของคุณ' },
+
+      // Intro
+      { id: 'life_intro_name', mainCat: 'life', subCat: 'intro', difficulty: 'easy', hanzi: '名字', pinyin: 'míngzi', thaiPron: 'หมิงจื่อ', meaning: 'ชื่อ', exCn: '你叫什么名字？', exPy: 'Nǐ jiào shénme míngzi?', exTh: 'คุณชื่ออะไร?' },
+
+      // Food
+      { id: 'life_food_rice', mainCat: 'life', subCat: 'food', difficulty: 'easy', hanzi: '炒饭', pinyin: 'chǎofàn', thaiPron: 'เฉ่าฟั่น', meaning: 'ข้าวผัด', exCn: '我要一份鸡肉炒饭。', exPy: 'Wǒ yào yī fèn jīròu chǎofàn.', exTh: 'ฉันขอข้าวผัดไก่หนึ่งที่' },
+      { id: 'life_food_noodle', mainCat: 'life', subCat: 'food', difficulty: 'easy', hanzi: '面条', pinyin: 'miàntiáo', thaiPron: 'เมี่ยนเถียว', meaning: 'บะหมี่ / เส้นก๋วยเตี๋ยว', exCn: '两碗牛肉面条。', exPy: 'Liǎng wǎn niúròu miàntiáo.', exTh: 'บะหมี่เนื้อสองชาม' },
+      { id: 'life_food_dumpling', mainCat: 'life', subCat: 'food', difficulty: 'easy', hanzi: '饺子', pinyin: 'jiǎozi', thaiPron: 'เจี่ยวจื่อ', meaning: 'เกี๊ยว', exCn: '我要一盘饺子。', exPy: 'Wǒ yào yī pán jiǎozi.', exTh: 'ฉันต้องการเกี๊ยวหนึ่งจาน' },
+      { id: 'life_food_mala', mainCat: 'life', subCat: 'food', difficulty: 'freq', hanzi: '麻辣', pinyin: 'málà', thaiPron: 'หม่าล่า', meaning: 'รสหม่าล่า (ชาและเผ็ด)', exCn: '我不吃麻辣。', exPy: 'Wǒ bù chī málà.', exTh: 'ฉันไม่กินเผ็ดหม่าล่า' },
+      { id: 'life_food_hotpot', mainCat: 'life', subCat: 'food', difficulty: 'freq', hanzi: '火锅', pinyin: 'huǒguō', thaiPron: 'หั่วกัว', meaning: 'ชาบู / หม้อไฟ', exCn: '今天我们吃火锅。', exPy: 'Jīntiān wǒmen chī huǒguō.', exTh: 'วันนี้พวกเราไปทานหม้อไฟกัน' },
+
+      // Shopping
+      { id: 'life_shop_price', mainCat: 'life', subCat: 'shopping', difficulty: 'easy', hanzi: '多少钱', pinyin: 'duōshao qián', thaiPron: 'ตัวส่าวเฉียน', meaning: 'ราคาเท่าไหร่', exCn: '这个苹果多少钱？', exPy: 'Zhège píngguǒ duōshao qián?', exTh: 'แอปเปิ้ลผลนี้ราคาเท่าไหร่?' },
+      { id: 'life_shop_cheap', mainCat: 'life', subCat: 'shopping', difficulty: 'freq', hanzi: '便宜一点', pinyin: 'piányi yīdiǎn', thaiPron: 'เฝียนอี่อี้เตี่ยน', meaning: 'ลดราคาหน่อยได้ไหม', exCn: '太贵了，便宜一点吧。', exPy: 'Tài guì le, piányi yīdiǎn ba.', exTh: 'แพงเกินไปแล้ว ลดราคาลงหน่อยสิครับ' },
+
+      // Travel
+      { id: 'life_trav_dt', mainCat: 'life', subCat: 'travel', difficulty: 'easy', hanzi: '地铁', pinyin: 'dìtiě', thaiPron: 'ตี้เถี่ย', meaning: 'รถไฟใต้ดิน', exCn: '我们坐地铁去吧。', exPy: 'Wǒmen zuò dìtiě qù ba.', exTh: 'พวกเรานั่งรถไฟใต้ดินไปกันเถอะ' },
+
+      // Places
+      { id: 'life_place_wc', mainCat: 'life', subCat: 'places', difficulty: 'easy', hanzi: '洗手间', pinyin: 'xǐshǒujiān', thaiPron: 'สีโส่วเจียน', meaning: 'ห้องน้ำ / สุขา', exCn: '请问，洗手间在哪里？', exPy: 'Qǐngwèn, xǐshǒujiān zài nǎlǐ?', exTh: 'ขอถามหน่อยครับ ห้องน้ำอยู่ที่ไหน?' }
+    ];
+
+    // Local state variables for tracked data
+    const STATE_KEY_LEARNED = 'cn_vocab_learned_v1';
+    const STATE_KEY_UNSURE = 'cn_vocab_unsure_v1';
+
+    let learnedSet = new Set();
+    let unsureSet = new Set();
+
+    // Load progress safely from LocalStorage
+    try {
+      const savedLearned = localStorage.getItem(STATE_KEY_LEARNED);
+      if (savedLearned) {
+        learnedSet = new Set(JSON.parse(savedLearned));
+      }
+      const savedUnsure = localStorage.getItem(STATE_KEY_UNSURE);
+      if (savedUnsure) {
+        unsureSet = new Set(JSON.parse(savedUnsure));
+      }
+    } catch(e) {
+      console.warn("Could not load from localStorage", e);
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(STATE_KEY_LEARNED, JSON.stringify([...learnedSet]));
+        localStorage.setItem(STATE_KEY_UNSURE, JSON.stringify([...unsureSet]));
+      } catch(e) {
+        console.warn("Could not save to localStorage", e);
+      }
+      updateStatsUI();
+    }
+
+    // SPEECH SYSTEM
+    let speechRate = 0.8;
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'zh-CN';
+        utter.rate = speechRate;
+        const voices = window.speechSynthesis.getVoices();
+        const zhVoice = voices.find(v => v.lang && (v.lang.includes('zh-CN') || v.lang.includes('zh_CN') || v.lang.startsWith('zh')));
+        if (zhVoice) {
+          utter.voice = zhVoice;
+        }
+        window.speechSynthesis.speak(utter);
+      } catch(e) {
+        showError("ไม่สามารถเรียกใช้งานระบบออกเสียงได้กรุณาลองใหม่อีกครั้ง");
+      }
+    }
+
+    function showError(msg) {
+      const errEl = document.getElementById('error-alert');
+      if (errEl) {
+        errEl.textContent = msg;
+        errEl.classList.remove('hidden');
+        setTimeout(() => errEl.classList.add('hidden'), 5000);
+      }
+    }
+
+    // INITIALIZE APP AND TABS
+    window.addEventListener('DOMContentLoaded', () => {
+      initTabs();
+      initStudyFilters();
+      initGameSetup();
+      updateStatsUI();
+      renderStudyGrid();
+
+      // settings listeners
+      document.getElementById('setting-rate').addEventListener('change', (e) => {
+        speechRate = parseFloat(e.target.value) || 0.8;
+      });
+      document.getElementById('btn-test-speech').addEventListener('click', () => {
+        speakText('你好');
+      });
+
+      // Clear state
+      document.getElementById('btn-clear-all-progress').addEventListener('click', () => {
+        if(confirm('คุณแน่ใจหรือไม่ว่าต้องการล้างความคืบหน้าการฝึกฝนทั้งหมด? ข้อมูลที่บันทึกไว้จะหายไป')) {
+          learnedSet.clear();
+          unsureSet.clear();
+          saveProgress();
+          updateStatsUI();
+          renderStudyGrid();
+        }
+      });
+    });
+
+    function initTabs() {
+      const tabs = [
+        { id: 'tab-study', viewId: 'view-study' },
+        { id: 'tab-game', viewId: 'view-game' },
+        { id: 'tab-progress', viewId: 'view-progress' },
+        { id: 'tab-settings', viewId: 'view-settings' }
+      ];
+
+      tabs.forEach(t => {
+        document.getElementById(t.id).addEventListener('click', () => {
+          tabs.forEach(other => {
+            document.getElementById(other.id).classList.remove('active');
+            document.getElementById(other.id).setAttribute('aria-selected', 'false');
+            document.getElementById(other.viewId).classList.add('hidden');
+          });
+          document.getElementById(t.id).classList.add('active');
+          document.getElementById(t.id).setAttribute('aria-selected', 'true');
+          document.getElementById(t.viewId).classList.remove('hidden');
+
+          // Hook refresh actions
+          if (t.viewId === 'view-study') {
+            renderStudyGrid();
+          } else if (t.viewId === 'view-progress') {
+            updateStatsUI();
+            renderUnsureGrid();
+          }
+        });
+      });
+    }
+
+    // STUDY VIEW FILTERS AND RENDERING
+    function initStudyFilters() {
+      const mainCatSelect = document.getElementById('study-main-category');
+      const subCatSelect = document.getElementById('study-sub-category');
+
+      // Populate main categories
+      mainCatSelect.innerHTML = '<option value="all">ทั้งหมด</option>';
+      for (const [key, value] of Object.entries(CATEGORIES)) {
+        mainCatSelect.innerHTML += `<option value="${key}">${value.name}</option>`;
+      }
+
+      function updateSubcategories() {
+        const selectedMain = mainCatSelect.value;
+        subCatSelect.innerHTML = '<option value="all">ทั้งหมด</option>';
+        if (selectedMain !== 'all' && CATEGORIES[selectedMain]) {
+          for (const [subKey, subVal] of Object.entries(CATEGORIES[selectedMain].subcategories)) {
+            subCatSelect.innerHTML += `<option value="${subKey}">${subVal}</option>`;
+          }
+        }
+        renderStudyGrid();
+      }
+
+      mainCatSelect.addEventListener('change', updateSubcategories);
+      subCatSelect.addEventListener('change', renderStudyGrid);
+      document.getElementById('study-difficulty').addEventListener('change', renderStudyGrid);
+      document.getElementById('study-progress-filter').addEventListener('change', renderStudyGrid);
+      
+      const searchInput = document.getElementById('study-search');
+      searchInput.addEventListener('input', renderStudyGrid);
+
+      // Global style toggles
+      document.getElementById('study-toggle-flashcard').addEventListener('change', renderStudyGrid);
+      document.getElementById('study-toggle-pinyin').addEventListener('change', (e) => {
+        const grid = document.getElementById('vocab-grid');
+        grid.classList.toggle('hide-pinyin', !e.target.checked);
+      });
+      document.getElementById('study-toggle-thai').addEventListener('change', (e) => {
+        const grid = document.getElementById('vocab-grid');
+        grid.classList.toggle('hide-thai-pron', !e.target.checked);
+      });
+
+      updateSubcategories();
+    }
+
+    function renderStudyGrid() {
+      const mainCat = document.getElementById('study-main-category').value;
+      const subCat = document.getElementById('study-sub-category').value;
+      const diff = document.getElementById('study-difficulty').value;
+      const progFilter = document.getElementById('study-progress-filter').value;
+      const searchVal = document.getElementById('study-search').value.toLowerCase().trim();
+      const flashcardMode = document.getElementById('study-toggle-flashcard').checked;
+
+      // Filter logic
+      let filtered = VOCAB_DATA.filter(item => {
+        if (mainCat !== 'all' && item.mainCat !== mainCat) return false;
+        if (subCat !== 'all' && item.subCat !== subCat) return false;
+        if (diff !== 'all' && item.difficulty !== diff) return false;
+
+        // Progress filters
+        const isLearned = learnedSet.has(item.id);
+        const isUnsure = unsureSet.has(item.id);
+        if (progFilter === 'learned' && !isLearned) return false;
+        if (progFilter === 'unsure' && !isUnsure) return false;
+        if (progFilter === 'unlearned' && (isLearned || isUnsure)) return false;
+
+        // Search text matching
+        if (searchVal) {
+          const matchHanzi = item.hanzi.includes(searchVal);
+          const matchPinyin = item.pinyin.toLowerCase().includes(searchVal);
+          const matchMeaning = item.meaning.toLowerCase().includes(searchVal);
+          if (!matchHanzi && !matchPinyin && !matchMeaning) return false;
+        }
+
+        return true;
+      });
+
+      // Update study meta title & counts
+      let catTitleText = "คำศัพท์ที่เลือก";
+      if (mainCat !== 'all' && CATEGORIES[mainCat]) {
+        catTitleText = CATEGORIES[mainCat].name;
+        if (subCat !== 'all' && CATEGORIES[mainCat].subcategories[subCat]) {
+          catTitleText += ` › ${CATEGORIES[mainCat].subcategories[subCat]}`;
+        }
+      }
+      document.getElementById('current-category-title').textContent = catTitleText;
+      document.getElementById('category-badge-count').textContent = `คำศัพท์ ${filtered.length} คำ`;
+
+      // Update study category level progress metrics
+      const totalInCat = filtered.length;
+      const learnedInCat = filtered.filter(i => learnedSet.has(i.id)).length;
+      const progressPercent = totalInCat > 0 ? Math.round((learnedInCat / totalInCat) * 100) : 0;
+      document.getElementById('study-progress-bar').style.width = `${progressPercent}%`;
+      document.getElementById('study-progress-text').textContent = `${learnedInCat} / ${totalInCat} (${progressPercent}%)`;
+
+      // Render cards
+      const grid = document.getElementById('vocab-grid');
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="empty-state">ไม่พบคำศัพท์ที่ตรงกับตัวกรองของคุณ</div>';
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'vocab-card';
+        if (flashcardMode) {
+          card.classList.add('mode-flash-hidden');
+        }
+
+        // Tags HTML
+        const isLearned = learnedSet.has(item.id);
+        const isUnsure = unsureSet.has(item.id);
+        let statusTagHTML = `<span class="vocab-tag status-unlearned">ยังไม่เคยฝึก</span>`;
+        if (isLearned) {
+          statusTagHTML = `<span class="vocab-tag status-learned">จำได้แล้ว ✅</span>`;
+        } else if (isUnsure) {
+          statusTagHTML = `<span class="vocab-tag status-unsure">ยังไม่แม่น ❌</span>`;
+        }
+
+        card.innerHTML = `
+          <div class="card-top">
+            <div class="vocab-status-pills">
+              <span class="vocab-tag difficulty">${item.difficulty === 'easy' ? 'เริ่มต้น' : 'ใช้บ่อย'}</span>
+              ${statusTagHTML}
+            </div>
+            <div class="audio-btns-group">
+              <button type="button" class="icon-btn ex-audio-trigger" title="ฟังประโยคตัวอย่าง">💬</button>
+              <button type="button" class="icon-btn word-audio-trigger" title="ฟังคำศัพท์">🔊</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="vocab-hanzi">${item.hanzi}</div>
+            <div class="vocab-pinyin">${item.pinyin}</div>
+            <div class="vocab-thai-pron">คำอ่าน: ${item.thaiPron}</div>
+            <div class="flashcard-reveal-box">
+              <div class="vocab-meaning">${item.meaning}</div>
+              <div class="vocab-example">
+                <div class="ex-cn"><span>${item.exCn}</span> <span style="font-size: 10px; cursor: pointer; color: var(--muted);" class="ex-audio-inline">🔊</span></div>
+                <div class="ex-py">${item.exPy}</div>
+                <div class="ex-th">${item.exTh}</div>
+              </div>
+            </div>
+            <div class="flashcard-click-prompt">แตะการ์ดเพื่อเปิดคำแปล</div>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="footer-btn btn-unsure ${isUnsure ? 'active' : ''}" title="บันทึกว่ายังไม่แม่นยำ">❌ ยังไม่แม่น</button>
+            <button type="button" class="footer-btn btn-learned ${isLearned ? 'active' : ''}" title="บันทึกว่าจำได้แล้ว">✅ จำได้แล้ว</button>
+          </div>
+        `;
+
+        // Card events
+        card.addEventListener('click', (e) => {
+          // If clicked audio buttons, do not trigger card flips
+          if (e.target.closest('.icon-btn') || e.target.closest('.footer-btn') || e.target.closest('.ex-audio-inline')) {
+            return;
+          }
+          if (flashcardMode) {
+            card.classList.toggle('mode-flash-hidden');
+          } else {
+            speakText(item.hanzi);
+          }
+        });
+
+        // Speech bindings
+        card.querySelector('.word-audio-trigger').addEventListener('click', () => {
+          speakText(item.hanzi);
+        });
+        card.querySelector('.ex-audio-trigger').addEventListener('click', () => {
+          speakText(item.exCn);
+        });
+        card.querySelector('.ex-audio-inline').addEventListener('click', () => {
+          speakText(item.exCn);
+        });
+
+        // Status update triggers
+        const unsureBtn = card.querySelector('.btn-unsure');
+        const learnedBtn = card.querySelector('.btn-learned');
+
+        unsureBtn.addEventListener('click', () => {
+          if (unsureSet.has(item.id)) {
+            unsureSet.delete(item.id);
+          } else {
+            unsureSet.add(item.id);
+            learnedSet.delete(item.id);
+          }
+          saveProgress();
+          renderStudyGrid();
+        });
+
+        learnedBtn.addEventListener('click', () => {
+          if (learnedSet.has(item.id)) {
+            learnedSet.delete(item.id);
+          } else {
+            learnedSet.add(item.id);
+            unsureSet.delete(item.id);
+          }
+          saveProgress();
+          renderStudyGrid();
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // UNSURE LISTINGS FOR PROGRESS TAB
+    function renderUnsureGrid() {
+      const container = document.getElementById('unsure-vocab-grid');
+      container.innerHTML = '';
+
+      const unsureList = VOCAB_DATA.filter(i => unsureSet.has(i.id));
+
+      if (unsureList.length === 0) {
+        container.innerHTML = '<div class="empty-state">ไม่มีคำศัพท์ที่จัดอยู่ในเกณฑ์ "ยังไม่แม่น" ยอดเยี่ยมมาก!</div>';
+        return;
+      }
+
+      unsureList.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'vocab-card';
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="vocab-tag status-unsure">ยังไม่แม่น ❌</span>
+            <button type="button" class="icon-btn unsure-audio-trigger">🔊</button>
+          </div>
+          <div class="card-body">
+            <div class="vocab-hanzi" style="font-size: 32px;">${item.hanzi}</div>
+            <div class="vocab-pinyin">${item.pinyin}</div>
+            <div class="vocab-meaning" style="border: none; margin: 0; padding: 0;">${item.meaning}</div>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="footer-btn btn-learned" style="font-size: 11px;">✅ ย้ายไป "จำได้แล้ว"</button>
+          </div>
+        `;
+
+        card.querySelector('.unsure-audio-trigger').addEventListener('click', () => {
+          speakText(item.hanzi);
+        });
+
+        card.querySelector('.btn-learned').addEventListener('click', () => {
+          unsureSet.delete(item.id);
+          learnedSet.add(item.id);
+          saveProgress();
+          renderUnsureGrid();
+          updateStatsUI();
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    function updateStatsUI() {
+      const totalWords = VOCAB_DATA.length;
+      const learnedCount = learnedSet.size;
+      const unsureCount = unsureSet.size;
+      const unlearnedCount = Math.max(0, totalWords - learnedCount - unsureCount);
+
+      document.getElementById('stat-total-learned').textContent = learnedCount;
+      document.getElementById('stat-total-unsure').textContent = unsureCount;
+      document.getElementById('stat-total-unlearned').textContent = unlearnedCount;
+    }
+
+    // GAME CONTROLLER SYSTEM
+    let gameQueue = [];
+    let gameIndex = 0;
+    let gameScore = 0;
+    let gameTimerDuration = 10;
+    let gameTimerInterval = null;
+    let gameTimeRemaining = 10;
+    let wrongAnswersCollected = [];
+    let currentQuizItem = null;
+
+    function initGameSetup() {
+      const catSelect = document.getElementById('game-category');
+      catSelect.innerHTML = '<option value="all">ทั้งหมด</option>';
+      for (const [key, value] of Object.entries(CATEGORIES)) {
+        catSelect.innerHTML += `<option value="${key}">${value.name}</option>`;
+      }
+
+      document.getElementById('btn-start-game').addEventListener('click', () => {
+        startQuiz();
+      });
+
+      document.getElementById('btn-restart-normal').addEventListener('click', () => {
+        document.getElementById('game-over-panel').classList.add('hidden');
+        document.getElementById('game-setup-panel').classList.remove('hidden');
+      });
+
+      document.getElementById('btn-review-mistakes').addEventListener('click', () => {
+        startQuiz(true); // Restart with wrong answers only
+      });
+    }
+
+    function startQuiz(reviewWrongOnly = false) {
+      const cat = document.getElementById('game-category').value;
+      const diff = document.getElementById('game-difficulty').value;
+      const countVal = document.getElementById('game-count').value;
+      const gameType = document.getElementById('game-type').value;
+      const timerVal = document.getElementById('game-timer').value;
+
+      let pool = VOCAB_DATA;
+
+      if (reviewWrongOnly) {
+        pool = wrongAnswersCollected;
+      } else {
+        if (cat !== 'all') {
+          pool = pool.filter(i => i.mainCat === cat);
+        }
+        if (diff !== 'all') {
+          pool = pool.filter(i => i.difficulty === diff);
+        }
+      }
+
+      // Check restrictions for numeric games
+      if ((gameType === 'num_listen_arabic' || gameType === 'num_arabic_hanzi') && cat !== 'numbers') {
+        if (!reviewWrongOnly) {
+          showError("โหมดทดสอบตัวเลขอารบิกจำเป็นต้องระบุหมวดหมู่ตัวเลขเท่านั้น เพื่อป้องกันคำแปลสับสน");
+          return;
+        }
+      }
+
+      if (pool.length === 0) {
+        showError("ไม่มีคำศัพท์ที่สอดคล้องกับการตั้งค่าเกมของคุณ กรุณาเลือกหมวดหรือระดับความยากใหม่อีกครั้ง");
+        return;
+      }
+
+      // Prepare questions pool
+      pool = shuffle(pool);
+      let limit = pool.length;
+      if (countVal !== 'unlimited') {
+        limit = Math.min(parseInt(countVal), pool.length);
+      }
+
+      gameQueue = pool.slice(0, limit);
+      gameIndex = 0;
+      gameScore = 0;
+      wrongAnswersCollected = [];
+      gameTimerDuration = timerVal === 'off' ? 0 : parseInt(timerVal);
+
+      document.getElementById('game-setup-panel').classList.add('hidden');
+      document.getElementById('game-over-panel').classList.add('hidden');
+      document.getElementById('game-play-panel').classList.remove('hidden');
+
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      // Clear timers
+      clearInterval(gameTimerInterval);
+      
+      if (gameIndex >= gameQueue.length) {
+        finishGame();
+        return;
+      }
+
+      const q = gameQueue[gameIndex];
+      currentQuizItem = q;
+      document.getElementById('game-q-counter').textContent = `คำถามข้อที่ ${gameIndex + 1} / ${gameQueue.length}`;
+      document.getElementById('game-score-pill').textContent = `คะแนนสะสม: ${gameScore}`;
+      document.getElementById('game-feedback-area').classList.add('hidden');
+      document.getElementById('btn-next-q').classList.add('hidden');
+
+      const gameType = document.getElementById('game-type').value;
+
+      // Handle sound prompt button animations or displays
+      const speakBtn = document.getElementById('game-speak-btn');
+      const primaryVisual = document.getElementById('game-visual-primary');
+      const secondaryVisual = document.getElementById('game-visual-secondary');
+      
+      primaryVisual.textContent = '';
+      secondaryVisual.textContent = '';
+      speakBtn.classList.remove('sound-pulse');
+
+      let choicesSource = VOCAB_DATA.filter(v => v.id !== q.id);
+      let distractors = shuffle(choicesSource).slice(0, 3);
+      let currentChoices = shuffle([q, ...distractors]);
+
+      if (gameType === 'listen_meaning') {
+        document.getElementById('game-prompt-instruction').textContent = '🔊 ฟังเสียงพูดภาษาจีน แล้วระบุความหมายที่ถูกต้อง';
+        speakBtn.classList.add('sound-pulse');
+        primaryVisual.textContent = '🎧 ?';
+        speakChineseSound(q.hanzi);
+        renderChoices(currentChoices, 'meaning');
+      } 
+      else if (gameType === 'hanzi_pinyin') {
+        document.getElementById('game-prompt-instruction').textContent = '🀄 จงเลือกพินอิน (Pinyin) ที่ตรงกับอักษรจีนนี้';
+        primaryVisual.textContent = q.hanzi;
+        renderChoices(currentChoices, 'pinyin');
+      } 
+      else if (gameType === 'pinyin_meaning') {
+        document.getElementById('game-prompt-instruction').textContent = '🔤 จงเลือกความหมายภาษาไทยที่ถูกต้องของพินอินนี้';
+        primaryVisual.textContent = q.pinyin;
+        renderChoices(currentChoices, 'meaning');
+      } 
+      else if (gameType === 'meaning_hanzi') {
+        document.getElementById('game-prompt-instruction').textContent = '🇹🇭 จงเลือกอักษรจีนตัวย่อที่ตรงกับความหมายนี้';
+        primaryVisual.textContent = q.meaning;
+        renderChoices(currentChoices, 'hanzi');
+      } 
+      else if (gameType === 'num_listen_arabic') {
+        document.getElementById('game-prompt-instruction').textContent = '🔢 ฟังเสียงอ่านตัวเลขภาษาจีน แล้วพิมพ์หรือเลือกตัวเลขอารบิก';
+        speakBtn.classList.add('sound-pulse');
+        primaryVisual.textContent = '🎧 ?';
+        speakChineseSound(q.hanzi);
+        renderChoices(currentChoices, 'arabic_numeric');
+      } 
+      else if (gameType === 'num_arabic_hanzi') {
+        document.getElementById('game-prompt-instruction').textContent = '🔢 จงจับคู่อักษรจีนตัวย่อให้ตรงกับตัวเลขอารบิกด้านล่าง';
+        primaryVisual.textContent = extractNumberValue(q.meaning);
+        renderChoices(currentChoices, 'hanzi');
+      } 
+      else if (gameType === 'fill_blank') {
+        document.getElementById('game-prompt-instruction').textContent = '✏️ จงเลือกคำศัพท์ที่เหมาะสมเพื่อเติมในช่องว่างประโยคตัวอย่าง';
+        // Hide target Hanzi from sentence
+        const obscuredSentence = q.exCn.replace(q.hanzi, ' ______ ');
+        primaryVisual.textContent = obscuredSentence;
+        secondaryVisual.textContent = q.exTh;
+        renderChoices(currentChoices, 'hanzi');
+      }
+      else if (gameType.startsWith('typing_')) {
+        document.getElementById('game-prompt-instruction').textContent = '⌨️ พิมพ์พินอิน (Pinyin) ของคำศัพท์ด้านล่างให้ถูกต้อง (ไม่ต้องใส่เครื่องหมายวรรณยุกต์)';
+        primaryVisual.textContent = q.hanzi;
+        secondaryVisual.textContent = q.meaning;
+        renderTypingChallenge();
+      }
+
+      // Timer triggers
+      if (gameTimerDuration > 0) {
+        document.getElementById('timer-wrapper').classList.remove('hidden');
+        gameTimeRemaining = gameTimerDuration;
+        updateTimerUI();
+        gameTimerInterval = setInterval(() => {
+          gameTimeRemaining--;
+          updateTimerUI();
+          if (gameTimeRemaining <= 0) {
+            clearInterval(gameTimerInterval);
+            handleAnswer(null, false); // Time out, marked as incorrect
+          }
+        }, 1000);
+      } else {
+        document.getElementById('timer-wrapper').classList.add('hidden');
+      }
+    }
+
+    function renderChoices(choices, displayKey) {
+      document.getElementById('game-choices-container').classList.remove('hidden');
+      document.getElementById('game-typing-container').classList.add('hidden');
+
+      const grid = document.getElementById('game-choices-grid');
+      grid.innerHTML = '';
+
+      choices.forEach(item => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'choice-btn';
+        
+        let labelText = '';
+        let subText = '';
+
+        if (displayKey === 'meaning') {
+          labelText = item.meaning;
+        } else if (displayKey === 'pinyin') {
+          labelText = item.pinyin;
+          subText = item.thaiPron;
+        } else if (displayKey === 'hanzi') {
+          labelText = item.hanzi;
+        } else if (displayKey === 'arabic_numeric') {
+          labelText = extractNumberValue(item.meaning);
+        }
+
+        btn.innerHTML = `
+          <div class="choice-main">${labelText}</div>
+          <div class="choice-sub">${subText}</div>
+        `;
+
+        btn.addEventListener('click', () => {
+          clearInterval(gameTimerInterval);
+          const isCorrect = item.id === currentQuizItem.id;
+          handleAnswer(item, isCorrect);
+        });
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function renderTypingChallenge() {
+      document.getElementById('game-choices-container').classList.add('hidden');
+      document.getElementById('game-typing-container').classList.remove('hidden');
+
+      const input = document.getElementById('game-typing-input');
+      input.value = '';
+      input.disabled = false;
+      input.focus();
+
+      const submitBtn = document.getElementById('game-typing-submit');
+      submitBtn.disabled = false;
+
+      // Unbind previous
+      submitBtn.onclick = () => {
+        const value = input.value.trim().toLowerCase().replace(/[^a-z]/g, '');
+        const targetClean = currentQuizItem.pinyin.toLowerCase().replace(/[^a-z]/g, '');
+        const isCorrect = value === targetClean;
+        clearInterval(gameTimerInterval);
+        handleAnswer({ pinyin: input.value }, isCorrect);
+      };
+    }
+
+    function handleAnswer(selectedItem, isCorrect) {
+      // Disable choice buttons and input
+      const buttons = document.querySelectorAll('#game-choices-grid .choice-btn');
+      buttons.forEach(b => b.disabled = true);
+      document.getElementById('game-typing-input').disabled = true;
+      document.getElementById('game-typing-submit').disabled = true;
+
+      const q = currentQuizItem;
+      const feedbackArea = document.getElementById('game-feedback-area');
+      const feedbackTitle = document.getElementById('game-feedback-title');
+      const feedbackDesc = document.getElementById('game-feedback-desc');
+      const nextBtn = document.getElementById('btn-next-q');
+
+      if (isCorrect) {
+        gameScore++;
+        feedbackTitle.textContent = "✅ ถูกต้องยอดเยี่ยม!";
+        feedbackArea.className = "game-feedback correct";
+      } else {
+        wrongAnswersCollected.push(q);
+        feedbackTitle.textContent = "❌ ยังไม่ถูกต้อง";
+        feedbackArea.className = "game-feedback wrong";
+      }
+
+      // Full Answer Explanations
+      feedbackDesc.innerHTML = `
+        <strong>อักษรจีน:</strong> <span style="font-size: 20px; font-weight: 800;">${q.hanzi}</span> | 
+        <strong>พินอิน:</strong> <span style="color: var(--brand); font-weight: 700;">${q.pinyin}</span> (${q.thaiPron}) <br>
+        <strong>คำแปลภาษาไทย:</strong> ${q.meaning}
+      `;
+
+      // Examples in feedback
+      document.getElementById('game-feedback-ex-cn').textContent = q.exCn;
+      document.getElementById('game-feedback-ex-py').textContent = q.exPy;
+      document.getElementById('game-feedback-ex-th').textContent = q.exTh;
+
+      // Setup audio triggers
+      document.getElementById('game-feedback-audio-btn').onclick = () => {
+        speakChineseSound(q.hanzi);
+      };
+
+      feedbackArea.classList.remove('hidden');
+      nextBtn.classList.remove('hidden');
+
+      // Bind next question action
+      nextBtn.onclick = () => {
+        gameIndex++;
+        loadQuestion();
+      };
+    }
+
+    function finishGame() {
+      document.getElementById('game-play-panel').classList.add('hidden');
+      const overPanel = document.getElementById('game-over-panel');
+      overPanel.classList.remove('hidden');
+
+      document.getElementById('game-final-score').textContent = `${gameScore} / ${gameQueue.length}`;
+
+      // Review mistakes check
+      const mistakesBtn = document.getElementById('btn-review-mistakes');
+      const reviewSection = document.getElementById('wrong-answers-review-section');
+      const wrongGrid = document.getElementById('wrong-answers-grid');
+      wrongGrid.innerHTML = '';
+
+      if (wrongAnswersCollected.length > 0) {
+        mistakesBtn.classList.remove('hidden');
+        reviewSection.classList.remove('hidden');
+
+        wrongAnswersCollected.forEach(item => {
+          const wCard = document.createElement('div');
+          wCard.className = 'vocab-card';
+          wCard.innerHTML = `
+            <div class="card-body" style="padding: 0;">
+              <div class="vocab-hanzi" style="font-size: 28px; margin: 0;">${item.hanzi}</div>
+              <div class="vocab-pinyin" style="font-size: 13px;">${item.pinyin} (${item.thaiPron})</div>
+              <div class="vocab-meaning" style="font-size: 13px; border: none; margin: 0; padding: 0;">${item.meaning}</div>
+            </div>
+          `;
+          wrongGrid.appendChild(wCard);
+        });
+      } else {
+        mistakesBtn.classList.add('hidden');
+        reviewSection.classList.add('hidden');
+      }
+    }
+
+    function updateTimerUI() {
+      const fill = document.getElementById('game-timer-fill');
+      const text = document.getElementById('timer-text');
+      if (gameTimerDuration > 0) {
+        const pct = (gameTimeRemaining / gameTimerDuration) * 100;
+        fill.style.width = `${pct}%`;
+        text.textContent = `${gameTimeRemaining}s`;
+      }
+    }
+
+    // Helper: Speak logic
+    function speakChineseSound(text) {
+      speakText(text);
+    }
+
+    // Helper: Extract Numeric digits from meaning string
+    function extractNumberValue(str) {
+      const match = str.match(/\d+/);
+      return match ? match[0] : str;
+    }
+
+    // Shuffle Algorithm
+    function shuffle(array) {
+      const arr = array.slice();
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+  </script>
+</body>
+</html>
